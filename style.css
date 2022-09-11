@@ -5,7 +5,7 @@
 
 }
 body{
-  background-color: rgb(28, 24, 24);
+  background-color: rgb(41, 38, 38);
 } 
 
 
@@ -14,6 +14,7 @@ body{
 :root {
     --background-color: 0, 0%, 95%;
     --btnBackground:300, 98%, 20%;
+--whiteBackground: 0, 0%, 100%
 }
 
 
@@ -26,7 +27,7 @@ right: 50%;
 top: 3rem;
 transform: translate(-50%,25%);
 border-bottom:1px solid hsl(var(--btnBackground));
-background-color: white;
+background-color: hsl(var(--whiteBackground));
 
 }
 
@@ -34,7 +35,7 @@ background-color: white;
 
 .tab {
     display: flex;
-    background-color: #f1f1f1;
+    background-color: hsl(var(--background-color));
 height: 6rem; 
 margin-bottom: 2rem;
 }
@@ -47,7 +48,7 @@ margin-bottom: 2rem;
     background-color: transparent;
     font-size: 17px;
     width: 12rem;
-    height: 6rem;
+    height: 6.3rem;
     
 }
 
@@ -58,13 +59,14 @@ bottom: .6rem;
 
 }
 .btn-container:hover{
-    background-color: white;
+    background-color: hsl(var(--whiteBackground));
     border-top:4px solidc;
 }
 /* Change background color of buttons on hover */
 .tab button:hover {
-    background-color:hsl(var(--btnBackground));
-    color: #f1f1f1;
+    background:linear-gradient(to right,rgba(87, 32, 198, 0.8) 80%,rgb(180, 111, 82));
+    
+    color:hsl(var(--whiteBackground));
 }
 
 /* Create an active/current tablink class */
@@ -73,24 +75,30 @@ bottom: .6rem;
 }
 
 /* Style the tab content */
-.tabcontent_container .tabcontents{
-    display:'none' ;
-    padding: 0 2rem;
-    height: 10rem;
+ .tabcontents{
+    position: absolute;
+display: none;
+    width: 35rem;
+        padding: 2rem;
+        left: 50%;
+        right: 50%;
+        transform: translate(-50%, 10%);
+        line-height: 1.3em;
+
 }
 
 
-.button_click{
+
+
+/* .button_click{
     background-color: #1e0606;
     width: 40rem;
     color: red;
     
-}
+} */
 
 .show{
-    display: 'block';
+display: block;
+   
 }
 
-.hide{
-    display:'none';
-}

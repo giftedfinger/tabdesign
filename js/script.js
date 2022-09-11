@@ -3,20 +3,22 @@ let print=console.log.bind(document)
 
 
 
-window.addEventListener('DOMContentLoaded', () => {
+// window.addEventListener('DOMContentLoaded', () => {
+
     let buttonDiv = document.querySelector('.tab')
     let textDiv = document.querySelector('.tabcontent');
     let tabcontent = document.querySelector('.tabcontent_container')
 
 countryCapital(countries)
+    TextDisplay(countries)
+  
 
-    constentDisplay()
 
-    // displays countries capital names in the header
-    // -----------------------------------------
-function countryCapital(capital){    
+    // displays countries capital names in the header -----------------------------------------
+
+    function countryCapital(capital){    
     let country = capital.map(country => {
-        return `<div class="btn-container"><button class="tablinks ">${country.Capital_name}</button></div>`
+        return `<div class="btn-container"><button id = ${country.Capital_name} class="tablinks ">${country.Capital_name}</button></div>`
     }).join(' ');
 
     buttonDiv.innerHTML = country;  
@@ -26,76 +28,76 @@ function countryCapital(capital){
 
     function TextDisplay(text){
     let Text = text.map(text => {
-        return `<div id = ${text.Capital_name} class = tabcontents ${text.Capital_name}> <h3>${text.Capital_name}</h3>
+        return `<div id = ${text.id} class = tabcontents ${text.Capital_name}> <h3>${text.Capital_name}</h3>
         <p>${text.text}</p> </div>`
     }).join('');
   
-return Text
+        tabcontent.innerHTML = Text
+
 }
-    const TextContainer = TextDisplay(countries)
-    tabcontent.innerHTML =TextContainer
+
+
   
+
     let textContent=document.querySelectorAll('.tabcontents')
-
-    
-    for(let i=0; i<=textContent.length;i++){
-        textContent[i].style.display='none'
-    }
-  
-//----------------- function for  the countries-----------------------------------------
-
-function constentDisplay(){
-
-
-// buttons action
-
-
     let buttons = document.querySelectorAll('.tablinks');
-    buttons.forEach((e) => {
-        e.addEventListener('click', (e) => {
-            let currentButton = e.currentTarget;
-            console.log(currentButton)
-            let tab = document.querySelector('.tab');
-        //    console.log(tab)
-            let button = currentButton.textContent;
-
-            // tab.getElementById(`#${button}`);
-           
-// console.log(button)
-            let divId = document.querySelectorAll(`#${button}`);
-         
-// getting the id of the button from a Nodlist which is similar to Array
-
-            let iD = divId[0].id
-            
-         let textDiv = divId[0]
-            print(textDiv)
-
- let countriesid =document.querySelectorAll(`${countries.id}`) 
 
 
+    //      
+
+    function show_hide_text(){
 
 
+//         buttons.forEach(btns => {
+// btns.addEventListener('click',e=>{
+//     let current_Target=e.currentTarget;
 
-            if(currentButton.textContent===iD){
-                textDiv.classList.add('show')
-             
-            }else{
-                print('no')
-            }
-           
+//     textContent.forEach(item => {
+
+//         let item_id = item.id;
+    
+
+// print(item_id,current_Target        )
+//         if (current_Target.textContent ===item_id){
+//         // print(current_Target.textContent,item_id)
+//         item.classList.add('show')
+       
+//     }
+//         item.classList.toggle('show')
+    
+    
+//             })
+//          })
+//     })
 
 
+for(let i=0;i<=buttons.length;i++){
+ 
+    buttons[i].addEventListener('click',(e)=>{
+        let current_Target = e.currentTarget;
+    
+        textContent.forEach(item=>{
+
+       print(item)
+        if (current_Target.id !== item.id){
+          item.classList.remove('show')
+            print(item.id)
+          
+        }
+        })
+     textContent[i].classList.toggle('show')
+    })
+      
+    
+
+}
 
        
 
-            // UI design// -------------------------------------------------button functionality-------------
-          
-        //     if(currentButton.!==)
+ }
 
+    show_hide_text()
+//  })
 
-        })
-    })
-}
+// -----------------------------UI--------------------------------------------------------------
 
- })
